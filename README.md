@@ -1,24 +1,36 @@
-# vue-grpc-demo
+# vue grpc demo
 
-## Project setup
-```
-yarn install
-```
+### intro
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+grpc client: grpc-web + vue.js
+grpc server: grpc + nodejs
 
-### Compiles and minifies for production
+### install
+
 ```
-yarn build
+yarn
 ```
 
-### Lints and fixes files
+or
+
 ```
-yarn lint
+npm i
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### start nodejs server
+
+```
+node server/node-server.js
+```
+
+### start envoy proxy server
+
+```
+docker run --name node-server-app -d -v "your path"\envoy-node.yaml:/etc/envoy/envoy.yaml:ro -p 8070:8070 -p 9902:9902 envoyproxy/envoy:v1.17.0
+```
+
+### start vue app
+
+```
+yarn dev
+```
